@@ -18,19 +18,17 @@ JavaScriptエンジンは以下の役割を担っています。
 
 主要なJavaScriptエンジンは以下の通りです。
 
-* **V8**: Google ChromeやNode.jsで使用される、もっとも広く使用されているJavaScriptエンジンです。高速な実行速度と優れた互換性を誇ります。
-* **SpiderMonkey**: Mozilla Firefoxで使用されるJavaScriptエンジンです。V8に次ぐ人気があり、高いパフォーマンスと安定性を提供します。
-* **Chakra**: Microsoft Edgeで使用されるJavaScriptエンジンです。V8と互換性が高く、独自の機能も備えています。
+* **V8**: Google Chrome、Microsoft Edge、Opera、Node.jsで使用される、もっとも広く使用されているJavaScriptエンジンです。高速な実行速度と優れた互換性を誇ります。
+* **SpiderMonkey**: Mozilla Firefoxで使用されるJavaScriptエンジンです。高いパフォーマンスと安定性を提供します。
 * **JavaScriptCore**: SafariやWebKitで使用されるJavaScriptエンジンです。高速で省電力な動作が特徴です。
 * **Hermes**: React Nativeで使用されるJavaScriptエンジンです。モバイル環境でのパフォーマンスに特化しており、軽量で効率的な動作を実現します。
 
 ## JavaScriptエンジンの比較
 
-| エンジン | 使用ブラウザ | 特徴 |
+| エンジン | 使用ブラウザ/環境 | 特徴 |
 |---|---|---|
-| V8 | Chrome、Node.js | 高速、互換性が高い |
+| V8 | Chrome、Edge、Opera、Node.js | 高速、互換性が高い |
 | SpiderMonkey | Firefox | 高速、安定性が高い |
-| Chakra | Edge | V8と互換性が高い、独自機能がある |
 | JavaScriptCore | Safari、WebKit | 高速、省電力 |
 | Hermes | React Native | 軽量、効率的 |
 
@@ -44,4 +42,4 @@ JavaScriptエンジンは以下の役割を担っています。
 
 ## まとめ
 
-JavaScriptエンジンは、Webページのインタラクティブな機能やサーバーサイドの処理を支える重要な基盤技術です。V8、SpiderMonkey、Chakra、JavaScriptCore、Hermesなどの主要なJavaScriptエンジンは、それぞれ異なる特徴と強みを持っています。近年、JavaScriptエンジンの技術革新により、パフォーマンスと機能が向上しており、今後もWeb開発において重要な役割を果たしていくことが期待されます。
+JavaScriptエンジンは、Webページのインタラクティブな機能やサーバーサイドの処理を支える重要な基盤技術です。V8、SpiderMonkey、JavaScoreなどの主要なJavaScriptエンジンは、それぞれ異なる特徴と強みを持っています。近年、JavaScriptエンジンの技術革新により、パフォーマンスと機能が向上しており、今後もWeb開発において重要な役割を果たしていくことが期待されます。
