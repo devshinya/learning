@@ -16,7 +16,7 @@ const bubbleSortAsc = (array) => {
   return array;
 };
 
-console.log(bubbleSortAsc([6, 3, 16, 9, 1, 7, 22, 10]));
+console.log(bubbleSortAsc([6, 3, 16, 9, 1, 7, 22, 10, 9]));
 
 // 問題文:
 // 与えられた整数の配列をバブルソートを使って降順に並び替えるプログラムを実装してください。
@@ -36,4 +36,4 @@ const bubbleSortDesc = array => {
   return array;
 }
 
-console.log(bubbleSortDesc([6, 3, 16, 9, 1, 7, 22, 10]));
+console.log(bubbleSortDesc([6, 3, 16, 9, 1, 7, 22, 10, 9]));
