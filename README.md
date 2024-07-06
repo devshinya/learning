@@ -10,7 +10,7 @@
 ## <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="28"> Hi there
 
 - 🧑‍💻 I'm a backend engineer.
-- 🌱 I’m currently learning React!
+- 🌱 I’m currently learning React and CS!
 - 📫 How to reach me: [X - @shinshinya4108](https://x.com/shinshinya4108)
 <br>
 
