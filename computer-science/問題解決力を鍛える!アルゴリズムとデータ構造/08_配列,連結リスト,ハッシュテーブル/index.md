@@ -130,3 +130,141 @@ def my_search(arr, value):
 
 全要素を順番に探索する必要がある。
 最悪の場合（要素が見つからない場合）は全要素を探索する必要があるためO(N)。
+
+## 連結リスト
+各要素（ノード）が値とリンク（次のノードへの参照）を持つデータ構造。
+メモリ上に連続して配置される必要がないため、挿入・削除が高速だが、インデックスアクセスが遅い。
+これは、i番目の要素にアクセスするには、先頭から順にi個のノードを辿る必要があるためである。
+
+### i番目の要素へのアクセス: O(N)
+```python
+from collections import deque
+
+d = deque([1, 2, 3, 4, 5])
+print(d[2])  # 3 (O(N))
+
+# 処理の内部動作
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def get(self, index):
+        if index < 0:
+            raise IndexError("Index out of range")
+
+        current = self.head
+        for i in range(index):  # indexの位置まで辿る
+            if current is None:
+                raise IndexError("Index out of range")
+            current = current.next
+
+        if current is None:
+            raise IndexError("Index out of range")
+        return current.value
+```
+
+i番目の要素にアクセスするには、先頭から順にi個のノードを辿る必要がある。
+そのため、アクセス時間はインデックスに比例し、O(N)となる。
+
+### 要素xを挿入（末尾）: O(1)
+```python
+d = deque([1, 2, 3, 4, 5])
+d.append(6)  # O(1)
+print(d)  # deque([1, 2, 3, 4, 5, 6])
+
+# 処理の内部動作
+def append(self, value):
+    new_node = Node(value)
+    if self.head is None:
+        self.head = new_node
+        return
+
+    # 末尾ポインタを保持している場合
+    if self.tail is not None:
+        self.tail.next = new_node
+        self.tail = new_node
+        return
+
+    # 末尾ポインタを保持していない場合
+    current = self.head
+    while current.next:
+        current = current.next
+    current.next = new_node
+```
+
+末尾ポインタを保持している場合、新しいノードを作成して末尾ノードの next に設定するだけなのでO(1)。
+ただし、末尾ポインタを保持していない場合は、末尾まで辿る必要があるためO(N)となる。
+
+### 要素xを特定の要素の直後に挿入: O(1)
+```python
+d = deque([1, 2, 3, 4, 5])
+d.insert(2, 10)  # 実際のdequeでは O(N)
+print(d)  # deque([1, 2, 10, 3, 4, 5])
+
+# 処理の内部動作
+def insert_after_node(self, node, value):
+    if node is None:
+        return
+
+    new_node = Node(value)
+    new_node.next = node.next
+    node.next = new_node
+```
+
+挿入位置のノードが分かっている場合、新しいノードのポインタを設定するだけなのでO(1)。
+ただし、特定のインデックスに挿入する場合は、そのノードまで辿る必要があるためO(N)となる。
+
+### 要素xを削除: O(1)
+```python
+d = deque([1, 2, 3, 4, 5])
+d.remove(3)  # 実際のdequeでは O(N)
+print(d)  # deque([1, 2, 4, 5])
+
+# 処理の内部動作
+def remove_after_node(self, node):
+    if node is None or node.next is None:
+        return
+
+    # 削除対象のノードをスキップ
+    node.next = node.next.next
+```
+
+削除位置のノードが分かっている場合、ポインタの付け替えだけなのでO(1)。
+ただし、特定の値やインデックスの要素を削除する場合は、そのノードまで辿る必要があるためO(N)となる。
+
+### 要素xを検索: O(N)
+```python
+d = deque([1, 2, 3, 4, 5])
+found = 3 in d  # O(N)
+print(found)  # True
+
+# 処理の内部動作
+def search(self, value):
+    current = self.head
+    while current:
+        if current.value == value:
+            return current
+        current = current.next
+    return None
+```
+
+全要素を順番に探索する必要がある。
+最悪の場合（要素が見つからない場合）は全要素を探索する必要があるためO(N)。
+
+### 補足
+1. 上記のコードは基本的な単方向連結リストの実装例です。実際の`collections.deque`は双方向連結リストを使用しており、より効率的な操作が可能。
+
+2. 連結リストは以下のような場合に有用：
+   - 要素の挿入・削除が頻繁に行われる
+   - データサイズが動的に変化する
+   - ランダムアクセスが少ない
+
+3. 一方で、以下のような場合は配列の方が適している：
+   - インデックスによるランダムアクセスが多い
+   - キャッシュ効率が重要
+   - メモリ使用量を最小限に抑えたい
